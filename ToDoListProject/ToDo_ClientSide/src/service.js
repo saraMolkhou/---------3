@@ -1,6 +1,9 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
 
-const apiUrl = "http://localhost:5121"
+dotenv.config();
+
+const apiUrl = process.env.REACT_APP_API_URL;
 axios.defaults.baseURL = apiUrl;
 
 axios.interceptors.response.use(
