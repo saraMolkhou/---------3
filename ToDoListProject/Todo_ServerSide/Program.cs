@@ -46,7 +46,7 @@ app.MapGet("/", () => "Hello World!");
 
 app.MapGet("/items", async (ToDoDbContext dbContext) =>
 {
-    console.WriteLine("i am in the get method in the api")
+    // console.WriteLine("i am in the get method in the api")
     var items = await dbContext.Items.ToListAsync();
     return Results.Ok(items);
 });
@@ -63,7 +63,7 @@ app.MapPost("/items", async (Item item, ToDoDbContext dbContext) =>
 // PUT method to update an existing item
 app.MapPut("/items/{id}", async (int id, Item updatedItem, ToDoDbContext dbContext) =>
 {
-        console.WriteLine("i am in the put method in the api")
+        // console.WriteLine("i am in the put method in the api")
     var item = await dbContext.Items.FindAsync(id);
     if (item == null)
         return Results.NotFound();
