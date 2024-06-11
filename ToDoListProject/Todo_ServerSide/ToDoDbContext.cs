@@ -16,22 +16,22 @@ public partial class ToDoDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Item> Items { get; set; }
+    public virtual DbSet<ToDo> ToDos { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("name=ToDoDB", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.36-mysql"));
+        => optionsBuilder.UseMySql("name=ToDoDB", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.22-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
-            .UseCollation("utf8mb4_0900_ai_ci")
-            .HasCharSet("utf8mb4");
+            .UseCollation("utf8_general_ci")
+            .HasCharSet("utf8");
 
-        modelBuilder.Entity<Item>(entity =>
+        modelBuilder.Entity<ToDo>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("items");
+            entity.ToTable("ToDo");
 
             entity.Property(e => e.Name).HasMaxLength(100);
         });
