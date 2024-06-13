@@ -50,7 +50,6 @@ app.MapGet("/items", async (ToDoDbContext dbContext) =>
     var items = await dbContext.ToDos.ToListAsync();
     return Results.Ok(items);
 });
-
 // POST a new item
 app.MapPost("/items", async (ToDo item, ToDoDbContext dbContext) =>
 {
