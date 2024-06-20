@@ -9,6 +9,7 @@ function App() {
 
   async function getTodos() {
     const todos = await service.getTasks();
+    console.log('Fetched todos:', todos);
     setTodos(todos);
   }
 
