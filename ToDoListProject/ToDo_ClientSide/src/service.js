@@ -17,7 +17,7 @@ export default {
   getTasks: async () => {
     const result = await axios.get(`${apiUrl}/items`)
     console.log(result.data);
-    return result.json;
+    return result.data;
   },
 
   addTask: async (name) => {

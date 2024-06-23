@@ -46,7 +46,6 @@ app.MapGet("/", () => "the server API is running!");
 
 app.MapGet("/items", async (ToDoDbContext dbContext) =>
 {
-    // console.log("i am in the get method in the api")
     var items = await dbContext.ToDos.ToListAsync();
     return Results.Ok(items);
 });
